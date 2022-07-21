@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            window.addEventListener('load', function() {
+                
+            let correct = document.querySelector('.correct');
+            correct.addEventListener('click', function() {
+                correct.style.backgroundColor = "#7FFF00";
+                correct.style.color = "white";
+                document.querySelector('#feedback').innerHTML = "Правильно.";
+            });
+                
+            let incorrects = document.querySelectorAll('.incorrect');
+            for (let i = 0; i < incorrects.length; i++) {
+                incorrects[i].addEventListener('click', function () {
+                    incorrects[i].style.backgroundColor = "#FF0000";
+                    incorrects[i].style.color = "white";
+                    document.querySelector('#feedback').innerHTML = "Не правильно.";
+                    });
+            }
+                
+            document.querySelector('#check').addEventListener('click', function () {
+                let input = document.querySelector('input');
+                if (input.value == 'Копенгаген') {
+                    input.style.background = "#7FFF00";
+                    input.style.color = "white";
+                    document.querySelector('#feedback2').innerHTML = 'Правильно';
+                }
+                else {
+                    input.style.background = "red";
+                    input.style.color = "white";
+                    document.querySelector('#feedback2').innerHTML = 'Не правильно';
+                }
+            })
+        })
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Тести!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Частина 1: Мульти-вибір </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Десятою цифрою після коми числа PI є:</h3>
+                <button class="incorrect">Цифра 9</button>
+                <button class="incorrect">Цифра 3</button>
+                <button class="correct">Цифра 5</button>
+                <button class="incorrect">Цифра 7</button>
+                <button class="incorrect">Цифра 2</button>
+
+            <p id="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Частина 2: Вільний ввід</h2>
+                <hr>
+                <h3>Столиця Данії</h3>
+                <input type='text'>
+                <button id='check'>Підтвердити</button>
+                <p id='feedback2'></p>
+            </div>
+        </div>
+    </body>
+</html>
